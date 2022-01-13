@@ -1,0 +1,45 @@
+<tr id="<%= dom_id employee %>">
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+
+    <div class="ml-3">
+      <p class="text-gray-900 whitespace-no-wrap">
+        <%= employee.name %>
+      </p>
+    </div>
+
+  </td>
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <p class="text-gray-900 whitespace-no-wrap"><%= employee.position %></p>
+  </td>
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <p class="text-gray-900 whitespace-no-wrap">
+      <%= employee.office %>
+    </p>
+  </td>
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <p class="text-gray-900 whitespace-no-wrap">
+      <%= employee.age %>
+    </p>
+  </td>
+
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+      <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+      <span class="relative"><%= employee.start_date %></span>
+    </span>
+  </td>
+
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+    <div id="<%= dom_id employee %>" class="flex bg-blue-200 rounded p-2">
+      <%= render partial: 'employees/likes', locals: { employee: employee } %>
+      <%= button_to 'Click me',
+                    like_employee_path(employee),
+                    method: :patch, data: { turbo_frame: '_top' } %>
+    </div>
+    </span>
+  </td>
+  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+    <%= button_to 'Delete', employee, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } %>
+  </td>
+</tr>
