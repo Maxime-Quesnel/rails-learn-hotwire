@@ -1,0 +1,53 @@
+<%= turbo_frame_tag "employees" do %>
+  <%= turbo_stream_from "employees" %>
+  <table class="min-w-full leading-normal">
+    <thead>
+    <tr>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <%= sort_link_to "Name", :name, data: { turbo_action: "advance" } %>
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <%= sort_link_to "Position", :position, data: { turbo_action: "advance" } %>
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <%= sort_link_to "Office", :office, data: { turbo_action: "advance" } %>
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <%= sort_link_to "Age", :age, data: { turbo_action: "advance" } %>
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <%= sort_link_to "Start_date", :start_date, data: { turbo_action: "advance" } %>
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <%= sort_link_to "Likes", :likes, data: { turbo_action: "advance" } %>
+      </th>
+      <th
+        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+        <p>Delete</p>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @employees %>
+    </tbody>
+  </table>
+
+
+  <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+      <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
+        <div class="inline-flex mt-2 xs:mt-0">
+          <%== pagy_nav @pagy %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<% end %>
