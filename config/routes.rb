@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+
   resources :employees do
     member do
       patch :like, to: "employees#like"
@@ -6,5 +9,5 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:index, :create, :destroy]
 
-  root 'employees#index'
+  root to: 'employees#index'
 end

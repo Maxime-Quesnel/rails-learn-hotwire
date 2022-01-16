@@ -14,7 +14,14 @@
  *= require_self
  */
 
+/*
 turbo-frame {
     display: block;
     border: 1px solid blue;
+}
+*/
+
+.container-messages {
+    min-width: calc(25% - 1rem);
+    max-width: calc(25% - 1rem);
 }

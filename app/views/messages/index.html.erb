@@ -1,7 +1,7 @@
 <%= render partial: "layouts/new_message_form" %>
 <div>
   <%= turbo_stream_from "messages" %>
-  <div id="messages" class="p-5 flex flex-wrap justify-between">
+  <div id="messages" class="p-5 flex flex-wrap justify-start mt-10">
     <%= render @messages %>
   </div>
 </div>

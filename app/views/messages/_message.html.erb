@@ -1,6 +1,5 @@
-<%= turbo_frame_tag dom_id(message) do %>
-  <%= turbo_stream_from message %>
-  <div id="<%= dom_id message %>" class="p-6 m-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+<%= turbo_frame_tag dom_id(message), class: "container-messages m-2 flex-wrap" do %>
+  <div id="<%= dom_id message %>" class="p-6 min-w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <div class="flex justify-between">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">New Message</h5>
       <%= button_to 'X', message_path(id: message.id), method: :delete, class: "text-white" %>
